@@ -1,0 +1,56 @@
+
+/* Element*/
+header { 
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 1em;
+    color: white;
+}
+button:hover{
+background-color: cadetblue;
+}
+footer {
+    background-color: #666;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+form {
+    clear: both;
+    float: left;
+    text-align: left;
+    background-color:darkkhaki;
+    padding: 10px;
+    color: #000;
+    width: 30%;
+}
+/*En klass som kan användas av flera*/
+.splitDiv {
+    background-color: #666;
+    padding: 0px;
+    text-align: center;
+    font-size: 1em;
+    color: white;
+}
+/*Class ID, unika använda en gång av */
+#game{
+    clear: both;
+    background-color:moccasin;
+    padding: 10px;
+    text-align: center;
+    color: #000;
+}
+#logo{
+    float: left;
+}
+#myDIV {
+    position: absolute;
+    background-color: coral;
+    color: white;
+}
+#movable{
+    clear: both;
+position: absolute;
+left: 0px;
+}

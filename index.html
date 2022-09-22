@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- dokumenthuvud, anger teckenkodning, skärmtyp länkade resurser -->
+  <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>The Best Game Ever</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+  <!--Dokuments kropp, det som är synligt i browsern  -->
+  <h2>introAppUtveckling</h2>
+  <p>This is not not a test <a href="index.html">Link to myself, no posting</a></p>
+  <img src="logo.png" alt="logo" id="logo"  />
+  <header>
+    <!--Header för introduktion eventuellt navigering  -->
+    <h1>GOLDPOG the DICE GAME</h1>
+    <p>You can procrastinate all day with this...</p>
+    <h2>This will not make you happy</h2>
+  </header>
+  <div class="splitDiv">
+    <!--Division med en form  -->
+    <form name="startForm"  action="index.html" method="get">
+      <label for="fname">Name:</label><br>
+      <input type="text" id="playerName" name="playerName" placeholder="John Smith" >
+      <br>
+      <label for="cashPot">Cash:</label>
+      <br>
+      <input type="number" id="cashEntry" name="cashEntry" placeholder="10" min="1" max="10">
+      <br>
+      <button type="submit">START GAME</button>
+    </form> 
+  </div>
+  <div class="splitDiv">
+    <!--Division som postar input från form get, parametrar  
+    Valde att sätta inline script eftersom detta körs när sida
+    läses in.
+
+    Tanken var att struktera med table...
+    -->
+    <table>
+      <tr>
+        <td id="results">
+         </td>
+         <td id="inCash">
+        </td>
+      </tr>
+    </table>
+    <script>
+      const resultList = document.getElementById('results') 
+      const cashList = document.getElementById('inCash') 
+      
+      new URLSearchParams(window.location.search).forEach((value,name) => {
+      /* resultList.append(`${name}:  ${value}`)
+        resultList.append(document.createElement('br'))
+      */
+      console.debug(name);
+      console.debug(value);
+      if (name==="playerName"){
+        resultList.append(value);
+      }
+      if (name==="cashEntry"){
+        cashList.append(value);
+      }
+    })
+      /*console.log(resultList.childNodes) DEBUG*/
+    </script>
+  </div>
+  <div id="game">
+    <!--Dåligt spel där man satsar 1-10; om tärning 1 är högre vinner man är 
+      är tärning 2 högre förloer man. Slår man två lika får man 2x vinst-->
+    <table>
+      <tr>
+        <td>Cash:</td>
+        <td><input type="number"  id="cashPot" value="0"></td>
+      </tr>
+          <tr>
+        <td>
+          <p>Bet</p>
+        </td>
+        <td>
+          <input type="number" id="bet" name="bet" placeholder="0" min="1" max="10">
+        </td>
+        <td>
+          <button onclick="rollDicePlay()">ROLL TWO DICE</button>
+        </td>
+      </tr>
+    </table>
+    <p>Results</p>
+    <ul id="myList">
+    </ul>
+  </div>
+  <!-- Fotelement  -->
+  <footer><p>The End of this World</p>
+    <button id="movable" onclick="moveButton()">Scroll me</button>
+
+  </footer>
+  <!-- Bonusknapp :D  -->
+</body>
+</html>
+
+
